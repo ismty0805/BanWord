@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MessengerActivity"></activity>
-        <activity android:name=".InternetActivity"></activity>
+        <activity android:name=".DigitalWellbeingActivity"></activity>
     </application>
 
 </manifest>

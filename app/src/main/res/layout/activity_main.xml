@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/add"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="152dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginRight="152dp"
-        android:text="+"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></Button>
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/digitalWellbeing"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:background="@drawable/digital_wellbeing"></ImageButton>
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="디지털 웰빙"
+                android:textColor="@color/black"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/messenger"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/yellow"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_kakao_talk"
+            android:textSize="20dp"></ImageButton>
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메신저"
+            android:textColor="@color/black"></TextView>
+        </LinearLayout>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/internet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="152dp"
-        android:layout_marginTop="492dp"
-        android:layout_marginEnd="240dp"
-        android:layout_marginRight="240dp"
-        android:text="인터넷"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></Button>
-
-    <Button
-        android:id="@+id/messenger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="152dp"
-        android:layout_marginTop="492dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
-        android:text="메신저"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></Button>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

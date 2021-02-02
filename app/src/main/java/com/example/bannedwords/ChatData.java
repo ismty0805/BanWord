@@ -17,14 +17,6 @@ public class ChatData{
         this.msg = msg;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public void setTime(){
         SimpleDateFormat format = new SimpleDateFormat("aa hh:mm");
         Calendar date = Calendar.getInstance();

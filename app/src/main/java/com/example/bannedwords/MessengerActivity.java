@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,16 +23,16 @@ public class MessengerActivity extends AppCompatActivity {
     private RecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<ChatData> chatList;
-    private String nick = "nick2"; // 1:1 or 1:da로
-
     private EditText EditText_chat;
-    private Button Button_send;
+    private ImageButton Button_send;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
 
-        chatList = new ArrayList<>();
+        getSupportActionBar().hide();
+
+        chatList = ChatList.getChatList();
         Button_send = findViewById(R.id.Button_send);
         EditText_chat = findViewById(R.id.EditText_chat);
 
@@ -42,7 +43,6 @@ public class MessengerActivity extends AppCompatActivity {
                 //널이 아닐때만 값전송하게
                 if (msg != null) {
                     ChatData chat = new ChatData();
-                    chat.setNickname(nick);
                     chat.setMsg(msg);
                     chat.setTime();
                     chatList.add(chat);
@@ -52,12 +52,6 @@ public class MessengerActivity extends AppCompatActivity {
 
             }
         });
-
-        ChatData chat = new ChatData();
-        chat.setNickname(nick);
-        chat.setMsg("hi");
-        chat.setTime();
-        chatList.add(chat);
 
         mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
