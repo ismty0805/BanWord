@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="250dp"
     android:gravity="center_horizontal">
     <TextView
         android:id="@+id/banWordsTitle"
@@ -21,17 +23,22 @@
         android:text="금지어 목록 확인"></Button>
 
     <TextView
+        android:layout_marginTop="10dp"
         android:id="@+id/banWords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/add"
         android:visibility="gone"></TextView>
 
-    <Button
+    <ImageButton
+        android:layout_marginTop="30dp"
         android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:textSize="40dp"></Button>
+        android:scaleType="fitXY"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_baseline_add_circle_24"
+        android:tint="@color/black"
+        android:textSize="40dp"></ImageButton>
 
 </LinearLayout>

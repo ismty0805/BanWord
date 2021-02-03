@@ -1,12 +1,15 @@
 package com.example.bannedwords;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,12 +39,34 @@ public class MessengerActivity extends AppCompatActivity {
         Button_send = findViewById(R.id.Button_send);
         EditText_chat = findViewById(R.id.EditText_chat);
 
+        EditText_chat.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    String msg = EditText_chat.getText().toString(); //msg
+                    //널이 아닐때만 값전송하게
+                    if (msg.length()!=0) {
+                        ChatData chat = new ChatData();
+                        chat.setMsg(msg);
+                        chat.setTime();
+                        chatList.add(chat);
+                        mRecyclerView.setAdapter(mAdapter);
+                        EditText_chat.setText("");
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
         Button_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String msg = EditText_chat.getText().toString(); //msg
                 //널이 아닐때만 값전송하게
-                if (msg != null) {
+                if (msg.length()!=0) {
                     ChatData chat = new ChatData();
                     chat.setMsg(msg);
                     chat.setTime();

@@ -3,6 +3,7 @@ package com.example.bannedwords;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class DigitalWellbeingActivity extends AppCompatActivity {
-    private Button add;
+    private ImageButton add;
     private TextView words;
     private TextView wordsTitle;
     private Button see;
@@ -37,6 +38,7 @@ public class DigitalWellbeingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText newWord = new EditText(DigitalWellbeingActivity.this);
+
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(DigitalWellbeingActivity.this);
                 builder.setTitle("금지어 추가");
@@ -70,8 +72,8 @@ public class DigitalWellbeingActivity extends AppCompatActivity {
             }
         });
 
-        BanWords.addBanWord("나쁜말");
-        BanWords.addBanWord("ㅗ");
+        BanWords.addBanWord("바보");
+        BanWords.addBanWord("멍청");
         refreshWords();
     }
 
